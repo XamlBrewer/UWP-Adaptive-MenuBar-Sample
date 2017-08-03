@@ -1,0 +1,58 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="MenuListViewStyle"
+           TargetType="ListView">
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <WrapGrid Orientation="Horizontal"
+                              HorizontalAlignment="Right"
+                              VerticalAlignment="Bottom" />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="MenuListViewItemStyle"
+           TargetType="ListViewItem">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListViewItem">
+                    <ListViewItemPresenter SelectedBackground="{StaticResource PageBackgroundBrush}"
+                                           SelectedPointerOverBackground="{StaticResource TenPercentLighterBrush}"
+                                           PointerOverBackground="{StaticResource TenPercentDarkerBrush}"
+                                           ContentTransitions="{TemplateBinding ContentTransitions}"
+                                           HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                           VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                           ContentMargin="{TemplateBinding Padding}" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <DataTemplate x:Key="MenuItemTemplate">
+        <StackPanel Orientation="Vertical"
+                    Height="72"
+                    Width="72"
+                    Padding="4 4 4 0">
+            <Border Background="Transparent"
+                    ToolTipService.ToolTip="{Binding Text}">
+                <Path x:Name="Glyph"
+                      Data="{Binding Glyph}"
+                      VerticalAlignment="Center"
+                      HorizontalAlignment="Center"
+                      Height="40"
+                      Width="40"
+                      Fill="{StaticResource PageForegroundBrush}"
+                      Stretch="Uniform" />
+            </Border>
+            <TextBlock Text="{Binding Text}"
+                       Margin="0 4 0 0"
+                       Foreground="{StaticResource PageForegroundBrush}"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center" />
+        </StackPanel>
+    </DataTemplate>
+
+</ResourceDictionary>
