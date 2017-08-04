@@ -19,6 +19,8 @@ namespace XamlBrewer.Uwp.AdaptiveMenuBarSample
 {
     public sealed partial class MainMenu : UserControl
     {
+        private WrapGrid _vsw;
+
         public MainMenu()
         {
             this.InitializeComponent();
@@ -33,7 +35,9 @@ namespace XamlBrewer.Uwp.AdaptiveMenuBarSample
             Menu.Items.Add(new MenuItem() { Glyph = Icon.GetIcon("DialogIcon"), Text = "Catalog", NavigationDestination = typeof(MainPage) });
             Menu.Items.Add(new MenuItem() { Glyph = Icon.GetIcon("DialogIcon"), Text = "Grain Bill", NavigationDestination = typeof(MainPage2) });
             Menu.Items.Add(new MenuItem() { Glyph = Icon.GetIcon("DialogIcon"), Text = "Catalog", NavigationDestination = typeof(MainPage) });
-            Menu.Items.Add(new MenuItem() { Glyph = Icon.GetIcon("DialogIcon"), Text = "Grain Bill", NavigationDestination = typeof(MainPage2) });
+            // Menu.Items.Add(new MenuItem() { Glyph = Icon.GetIcon("DialogIcon"), Text = "Grain Bill", NavigationDestination = typeof(MainPage2) });
+
+            StackPanel.RegisterImplicitAnimations();
         }
 
         public void SetTab(Type pageType)
@@ -58,6 +62,35 @@ namespace XamlBrewer.Uwp.AdaptiveMenuBarSample
             {
                 Navigation.Navigate(menuItem.NavigationDestination);
             }
+        }
+
+        private void StackPanel_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (_vsw == null)
+            {
+                return;
+            }
+
+            if (e.NewSize.Width != e.PreviousSize.Width)
+            {
+                // Only react on change in Width.
+                if (e.NewSize.Width > 800)
+                {
+                    _vsw.ItemWidth = e.NewSize.Width / 2;
+                }
+                else
+                {
+                    _vsw.ItemWidth = e.NewSize.Width;
+                }
+
+                //Title.Width = _vsw.ItemWidth;
+            }
+        }
+
+        private void VSW_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Avoid walking the Visual Tree on each Size change.
+            _vsw = sender as WrapGrid;
         }
     }
 }

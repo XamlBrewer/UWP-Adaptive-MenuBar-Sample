@@ -7,7 +7,7 @@
       mc:Ignorable="d">
 
     <Grid Background="{StaticResource PageBackgroundBrush}"
-          Padding="20">
+          Padding="0">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />

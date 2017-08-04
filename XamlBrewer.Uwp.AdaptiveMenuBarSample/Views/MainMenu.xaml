@@ -6,46 +6,81 @@
              mc:Ignorable="d"
              d:DesignHeight="300"
              d:DesignWidth="400">
-    <Grid Background="{StaticResource TenPercentDarkerBrush}">
+    <Grid Background="{StaticResource TenPercentDarkerBrush}"
+          Margin="0"
+          Padding="0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="auto" />
+            <!--<ColumnDefinition Width="auto" />-->
         </Grid.ColumnDefinitions>
 
-        <StackPanel x:Name="StackPanel"
-                    Orientation="Horizontal"
-                    HorizontalAlignment="Stretch">
+        <GridView x:Name="StackPanel"
+                  HorizontalAlignment="Stretch"
+                  HorizontalContentAlignment="Left"
+                  VerticalAlignment="Bottom"
+                  VerticalContentAlignment="Bottom"
+                  SizeChanged="StackPanel_SizeChanged"
+                  SelectionMode="None"
+                  Padding="0">
+            <GridView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapGrid x:Name="VSW"
+                              Loaded="VSW_Loaded"
+                              ItemHeight="68"
+                              ItemWidth="1000"
+                              Orientation="Horizontal"
+                              Margin="0" />
+                </ItemsPanelTemplate>
+            </GridView.ItemsPanel>
+
             <!-- Title -->
-            <Viewbox Stretch="UniformToFill"
-                     StretchDirection="DownOnly"
-                     >
-                <TextBlock Foreground="{StaticResource PageForegroundBrush}"
-                           FontSize="48"
-                           FontWeight="Light"
-                           VerticalAlignment="Top"
-                           HorizontalAlignment="Left"
-                           Margin="48 8 0 0">
-                <Run Text="Adaptive Menu Sample" />
-                </TextBlock>
-            </Viewbox>
+            <GridViewItem VerticalAlignment="Stretch"
+                          VerticalContentAlignment="Center"
+                          HorizontalAlignment="Stretch"
+                          HorizontalContentAlignment="Left">
+                <Viewbox x:Name="Title"
+                         Stretch="Uniform"
+                         StretchDirection="DownOnly"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Center">
+                    <TextBlock Foreground="{StaticResource PageForegroundBrush}"
+                               FontSize="48"
+                               FontWeight="Light"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Left"
+                               Margin="48 8 0 0">
+                <Run Text="Adaptive Menu Bar Sample" />
+                    </TextBlock>
+                </Viewbox>
+            </GridViewItem>
 
             <!-- Navigation -->
-            <Viewbox Stretch="UniformToFill"
-                     StretchDirection="DownOnly"
-                     VerticalAlignment="Bottom">
-                <ListView x:Name="Menu"
-                          SelectionChanged="Menu_OnSelectionChanged"
-                          Style="{StaticResource MenuListViewStyle}"
-                          ItemContainerStyle="{StaticResource MenuListViewItemStyle}"
-                          ItemTemplate="{StaticResource MenuItemTemplate}"
-                          HorizontalAlignment="Left"
-                          Margin="20 10 10 0" />
-            </Viewbox>
+            <GridViewItem HorizontalAlignment="Stretch"
+                          HorizontalContentAlignment="Left"
+                          VerticalAlignment="Stretch"
+                          VerticalContentAlignment="Bottom"
+                          Margin="0"
+                          Padding="0">
+                <Viewbox x:Name="MenuBar"
+                         Stretch="Uniform"
+                         StretchDirection="DownOnly"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Bottom"
+                         Margin="0">
+                    <ListView x:Name="Menu"
+                              SelectionChanged="Menu_OnSelectionChanged"
+                              Style="{StaticResource MenuListViewStyle}"
+                              ItemContainerStyle="{StaticResource MenuListViewItemStyle}"
+                              ItemTemplate="{StaticResource MenuItemTemplate}"
+                              HorizontalAlignment="Left"
+                              Margin="20 10 10 0" />
+                </Viewbox>
+            </GridViewItem>
 
-        </StackPanel>
+        </GridView>
 
         <!-- Icon -->
-        <Path Data="{StaticResource DialogIcon}"
+        <!--<Path Data="{StaticResource DialogIcon}"
               Fill="Black"
               VerticalAlignment="Top"
               HorizontalAlignment="Right"
@@ -53,45 +88,63 @@
               Width="48"
               Margin="20"
               Stretch="Uniform"
-              Grid.Column="1" />
+              Grid.Column="1" />-->
 
         <!-- Responsive Visual States -->
-        <VisualStateManager.VisualStateGroups>
+        <!--<VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
 
-                <!-- VisualState to be triggered when window width is >=1007 effective pixels -->
+                -->
+        <!-- VisualState to be triggered when window width is >=1007 effective pixels -->
+        <!--
                 <VisualState x:Name="Large">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="1007" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="StackPanel.Orientation"
-                                Value="Horizontal" />
+                        <Setter Target="VSW.ItemWidth"
+                                Value="500" />
+                        -->
+        <!--<Setter Target="StackPanel.Orientation"
+                                Value="Horizontal" />-->
+        <!--
                     </VisualState.Setters>
                 </VisualState>
 
-                <!-- VisualState to be triggered when window width is >=640 and <=1007 effective pixels -->
+                -->
+        <!-- VisualState to be triggered when window width is >=640 and <=1007 effective pixels -->
+        <!--
                 <VisualState x:Name="Medium">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="641" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="StackPanel.Orientation"
-                                Value="Vertical" />
+                        <Setter Target="VSW.ItemWidth"
+                                Value="400" />
+                        -->
+        <!--<Setter Target="StackPanel.Orientation"
+                                Value="Vertical" />-->
+        <!--
                     </VisualState.Setters>
                 </VisualState>
 
-                <!-- VisualState to be triggered when window width is >=0 and <641 effective pixels -->
+                -->
+        <!-- VisualState to be triggered when window width is >=0 and <641 effective pixels -->
+        <!--
                 <VisualState x:Name="Small">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="0" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="StackPanel.Orientation"
-                                Value="Vertical" />
+                        -->
+        <!--<Setter Target="StackPanel.Orientation"
+                                Value="Vertical" />-->
+        <!--
+                        <Setter Target="VSW.ItemWidth"
+                                Value="400" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
+        </VisualStateManager.VisualStateGroups>-->
     </Grid>
 </UserControl>
