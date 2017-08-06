@@ -17,25 +17,25 @@ using Windows.UI.Xaml.Navigation;
 
 namespace XamlBrewer.Uwp.AdaptiveMenuBarSample
 {
-    public sealed partial class MainMenu : UserControl
+    public sealed partial class AnimalsMenu : UserControl
     {
         private WrapGrid _vsw;
 
-        public MainMenu()
+        public AnimalsMenu()
         {
             this.InitializeComponent();
             Menu.Items.Add(new MenuItem()
             {
-                Glyph = Icon.GetIcon("DialogIcon"),
-                Text = "Index",
-                NavigationDestination = typeof(MainPage)
+                Glyph = Icon.GetIcon("AriesIcon"),
+                Text = "Aries",
+                NavigationDestination = typeof(AriesPage)
             });
-            Menu.Items.Add(new MenuItem() { Glyph = Icon.GetIcon("DialogIcon"), Text = "Catalog", NavigationDestination = typeof(MainPage) });
-            Menu.Items.Add(new MenuItem() { Glyph = Icon.GetIcon("DialogIcon"), Text = "Grain Bill", NavigationDestination = typeof(MainPage2) });
-            Menu.Items.Add(new MenuItem() { Glyph = Icon.GetIcon("DialogIcon"), Text = "Catalog", NavigationDestination = typeof(MainPage) });
-            Menu.Items.Add(new MenuItem() { Glyph = Icon.GetIcon("DialogIcon"), Text = "Grain Bill", NavigationDestination = typeof(MainPage2) });
-            Menu.Items.Add(new MenuItem() { Glyph = Icon.GetIcon("DialogIcon"), Text = "Catalog", NavigationDestination = typeof(MainPage) });
-            // Menu.Items.Add(new MenuItem() { Glyph = Icon.GetIcon("DialogIcon"), Text = "Grain Bill", NavigationDestination = typeof(MainPage2) });
+            Menu.Items.Add(new MenuItem() { Glyph = Icon.GetIcon("CancerIcon"), Text = "Cancer", NavigationDestination = typeof(CancerPage) });
+            Menu.Items.Add(new MenuItem() { Glyph = Icon.GetIcon("CapricornIcon"), Text = "Capricorn", NavigationDestination = typeof(CapricornPage) });
+            Menu.Items.Add(new MenuItem() { Glyph = Icon.GetIcon("LeoIcon"), Text = "Leo", NavigationDestination = typeof(LeoPage) });
+            Menu.Items.Add(new MenuItem() { Glyph = Icon.GetIcon("PiscesIcon"), Text = "Pisces", NavigationDestination = typeof(PiscesPage) });
+            Menu.Items.Add(new MenuItem() { Glyph = Icon.GetIcon("ScorpioIcon"), Text = "Scorpio", NavigationDestination = typeof(ScorpioPage) });
+            Menu.Items.Add(new MenuItem() { Glyph = Icon.GetIcon("TaurusIcon"), Text = "Taurus", NavigationDestination = typeof(TaurusPage) });
 
             StackPanel.RegisterImplicitAnimations();
         }
@@ -71,19 +71,10 @@ namespace XamlBrewer.Uwp.AdaptiveMenuBarSample
                 return;
             }
 
+            // Only react to change in Width.
             if (e.NewSize.Width != e.PreviousSize.Width)
             {
-                // Only react on change in Width.
-                if (e.NewSize.Width > 800)
-                {
-                    _vsw.ItemWidth = e.NewSize.Width / 2;
-                }
-                else
-                {
-                    _vsw.ItemWidth = e.NewSize.Width;
-                }
-
-                //Title.Width = _vsw.ItemWidth;
+                AdjustItemTemplate();
             }
         }
 
@@ -91,6 +82,23 @@ namespace XamlBrewer.Uwp.AdaptiveMenuBarSample
         {
             // Avoid walking the Visual Tree on each Size change.
             _vsw = sender as WrapGrid;
+
+            // Initialize item template.
+            AdjustItemTemplate();
+        }
+
+        private void AdjustItemTemplate()
+        {
+            if (ActualWidth > 800)
+            {
+                _vsw.ItemWidth = ActualWidth / 2;
+                _vsw.MinWidth = ActualWidth;
+            }
+            else
+            {
+                _vsw.ItemWidth = ActualWidth;
+                _vsw.Width = ActualWidth;
+            }
         }
     }
 }

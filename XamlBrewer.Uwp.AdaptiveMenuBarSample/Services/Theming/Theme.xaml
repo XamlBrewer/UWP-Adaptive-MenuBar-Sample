@@ -13,32 +13,32 @@
                      Color="White"
                      Opacity=".1" />
     <SolidColorBrush x:Key="HighlightBrush"
-                     Color="#8882A8" />
+                     Color="#FFEFBF7D" />
 
     <!-- Header -->
     <SolidColorBrush x:Key="TitlebarBackgroundBrush"
-                     Color="#FF8A2F3E" />
+                     Color="#FF6EC0D6" />
     <SolidColorBrush x:Key="TitlebarBackgroundDarkBrush"
-                     Color="#FF8A2F3E" />
+                     Color="#FF466582" />
     <SolidColorBrush x:Key="TitlebarBackgroundLightBrush"
-                     Color="#FF8A2F3E" />
+                     Color="#FF466582" />
     <SolidColorBrush x:Key="StatusbarBackgroundBrush"
-                     Color="#FF8A2F3E" />
+                     Color="#FF6EC0D6" />
 
     <!-- Splitview Pane -->
     <SolidColorBrush x:Key="SplitViewBackgroundBrush"
-                     Color="#FFAA3A46" />
+                     Color="#FF466582" />
     <SolidColorBrush x:Key="SplitViewForegroundBrush"
-                     Color="#FFE8DABB" />
+                     Color="#FF8BD4E3" />
     <SolidColorBrush x:Key="HamburgerForegroundBrush"
-                     Color="#FFE8DABB" />
+                     Color="#FFEFBF7D" />
 
     <!-- Splitview Content -->
     <Color x:Key="PageBackgroundColor">#FFF05F66</Color>
     <SolidColorBrush x:Key="PageBackgroundBrush"
-                     Color="#FFF05F66" />
+                     Color="#FFD8EDE4" />
     <SolidColorBrush x:Key="PageTitleBrush"
-                     Color="#FFE8DABB" />
+                     Color="#FF466582" />
     <SolidColorBrush x:Key="PageForegroundBrush"
-                     Color="#FFE8DABB" />
+                     Color="#FF466582" />
 </ResourceDictionary>

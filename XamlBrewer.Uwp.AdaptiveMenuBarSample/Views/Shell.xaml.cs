@@ -19,8 +19,8 @@ namespace XamlBrewer.Uwp.AdaptiveMenuBarSample
             // Initialize Navigation Service.
             Navigation.Frame = SplitViewFrame;
 
-            // Navigate to main page.
-            Navigation.Navigate(typeof(MainPage));
+            // Navigate to home page.
+            Navigation.Navigate(typeof(HomePage));
         }
 
         // Navigate to another page.

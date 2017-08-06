@@ -108,14 +108,56 @@
     <Compile Include="Views\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MainMenu.xaml.cs">
-      <DependentUpon>MainMenu.xaml</DependentUpon>
+    <Compile Include="Views\Animals\AnimalsMenu.xaml.cs">
+      <DependentUpon>AnimalsMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MainPage2.xaml.cs">
-      <DependentUpon>MainPage2.xaml</DependentUpon>
+    <Compile Include="Views\Animals\TaurusPage.xaml.cs">
+      <DependentUpon>TaurusPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <Compile Include="Views\Animals\ScorpioPage.xaml.cs">
+      <DependentUpon>ScorpioPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Animals\PiscesPage.xaml.cs">
+      <DependentUpon>PiscesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Animals\LeoPage.xaml.cs">
+      <DependentUpon>LeoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Animals\CapricornPage.xaml.cs">
+      <DependentUpon>CapricornPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Animals\CancerPage.xaml.cs">
+      <DependentUpon>CancerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Animals\AriesPage.xaml.cs">
+      <DependentUpon>AriesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Others\VirgoPage.xaml.cs">
+      <DependentUpon>VirgoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Others\SagittariusPage.xaml.cs">
+      <DependentUpon>SagittariusPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Others\LibraPage.xaml.cs">
+      <DependentUpon>LibraPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Others\GeminiPage.xaml.cs">
+      <DependentUpon>GeminiPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Others\AquariusPage.xaml.cs">
+      <DependentUpon>AquariusPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Others\OthersMenu.xaml.cs">
+      <DependentUpon>OthersMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Others\OthersPage.xaml.cs">
+      <DependentUpon>OthersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Animals\AnimalsPage.xaml.cs">
+      <DependentUpon>AnimalsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Shell.xaml.cs">
       <DependentUpon>Shell.xaml</DependentUpon>
@@ -128,6 +170,21 @@
     <None Include="XamlBrewer.Uwp.AdaptiveMenuBarSample_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Zodiac\animals.png" />
+    <Content Include="Assets\Zodiac\aquarius.png" />
+    <Content Include="Assets\Zodiac\aries.png" />
+    <Content Include="Assets\Zodiac\cancer.png" />
+    <Content Include="Assets\Zodiac\capricorn.png" />
+    <Content Include="Assets\Zodiac\gemini.png" />
+    <Content Include="Assets\Zodiac\leo.png" />
+    <Content Include="Assets\Zodiac\libra.png" />
+    <Content Include="Assets\Zodiac\others.png" />
+    <Content Include="Assets\Zodiac\pisces.png" />
+    <Content Include="Assets\Zodiac\sagittarius.png" />
+    <Content Include="Assets\Zodiac\scorpio.png" />
+    <Content Include="Assets\Zodiac\taurus.png" />
+    <Content Include="Assets\Zodiac\virgo.png" />
+    <Content Include="Assets\Zodiac\zodiac.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -159,15 +216,71 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\MainMenu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\MainPage2.xaml">
+    <Page Include="Views\Animals\AnimalsMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\MainPage.xaml">
+    <Page Include="Views\Animals\TaurusPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Animals\ScorpioPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Animals\PiscesPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Animals\LeoPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Animals\CapricornPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Animals\CancerPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Animals\AriesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Others\VirgoPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Others\SagittariusPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Others\LibraPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Others\GeminiPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Others\AquariusPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Others\OthersMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Others\OthersPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Animals\AnimalsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

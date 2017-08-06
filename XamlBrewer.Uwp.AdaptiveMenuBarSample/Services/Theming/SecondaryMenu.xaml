@@ -34,7 +34,7 @@
     <DataTemplate x:Key="MenuItemTemplate">
         <StackPanel Orientation="Vertical"
                     Height="72"
-                    Width="72"
+                    Width="80"
                     Padding="4 4 4 0">
             <Border Background="Transparent"
                     ToolTipService.ToolTip="{Binding Text}">

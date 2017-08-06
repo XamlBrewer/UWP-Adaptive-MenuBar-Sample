@@ -18,9 +18,9 @@ using Windows.UI.Xaml.Navigation;
 
 namespace XamlBrewer.Uwp.AdaptiveMenuBarSample
 {
-    public sealed partial class MainPage : Page
+    public sealed partial class OthersPage : Page
     {
-        public MainPage()
+        public OthersPage()
         {
             this.InitializeComponent();
         }

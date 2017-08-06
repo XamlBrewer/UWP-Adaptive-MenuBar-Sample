@@ -1,0 +1,33 @@
+﻿<Page x:Class="XamlBrewer.Uwp.AdaptiveMenuBarSample.AquariusPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:XamlBrewer.Uwp.AdaptiveMenuBarSample"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
+
+    <Grid Background="{StaticResource PageBackgroundBrush}"
+          Padding="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <local:OthersMenu x:Name="Menu" />
+
+        <Image Stretch="Uniform"
+               VerticalAlignment="Bottom"
+               HorizontalAlignment="Right"
+               Margin="20 20 -120 -120"
+               Source="ms-appx:///Assets/Zodiac/aquarius.png"
+               Grid.Row="1" />
+        <TextBlock Text="Aquarius"
+                   FontSize="32"
+                   FontWeight="Light"
+                   Foreground="{StaticResource HighlightBrush}"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Left"
+                   Margin="48 8 0 0"
+                   Grid.Row="1" />
+    </Grid>
+</Page>
