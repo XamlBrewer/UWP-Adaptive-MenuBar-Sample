@@ -19,25 +19,27 @@ namespace XamlBrewer.Uwp.AdaptiveMenuBarSample
 {
     public sealed partial class OthersMenu : UserControl
     {
-        private WrapGrid _vsw;
+        private WrapGrid _itemsPanel;
 
         public OthersMenu()
         {
             this.InitializeComponent();
-            Menu.Items.Add(new MenuItem()
-            {
-                Glyph = Icon.GetIcon("AquariusIcon"),
-                Text = "Aquarius",
-                NavigationDestination = typeof(AquariusPage)
-            });
+
+            // Populate Menu.
+            Menu.Items.Add(new MenuItem() { Glyph = Icon.GetIcon("AquariusIcon"), Text = "Aquarius", NavigationDestination = typeof(AquariusPage) });
             Menu.Items.Add(new MenuItem() { Glyph = Icon.GetIcon("GeminiIcon"), Text = "Gemini", NavigationDestination = typeof(GeminiPage) });
             Menu.Items.Add(new MenuItem() { Glyph = Icon.GetIcon("LibraIcon"), Text = "Libra", NavigationDestination = typeof(LibraPage) });
             Menu.Items.Add(new MenuItem() { Glyph = Icon.GetIcon("SagittariusIcon"), Text = "Sagittarius", NavigationDestination = typeof(SagittariusPage) });
             Menu.Items.Add(new MenuItem() { Glyph = Icon.GetIcon("VirgoIcon"), Text = "Virgo", NavigationDestination = typeof(VirgoPage) });
 
-            StackPanel.RegisterImplicitAnimations();
+            // Animate Menu.
+            GridView.RegisterImplicitAnimations();
         }
 
+        /// <summary>
+        /// Highlights the (first) menu item that corresponds to the page.
+        /// </summary>
+        /// <param name="pageType">Type of the page.</param>
         public void SetTab(Type pageType)
         {
             // Lookup destination type in menu(s)
@@ -62,9 +64,9 @@ namespace XamlBrewer.Uwp.AdaptiveMenuBarSample
             }
         }
 
-        private void StackPanel_SizeChanged(object sender, SizeChangedEventArgs e)
+        private void GridView_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            if (_vsw == null)
+            if (_itemsPanel == null)
             {
                 return;
             }
@@ -76,10 +78,10 @@ namespace XamlBrewer.Uwp.AdaptiveMenuBarSample
             }
         }
 
-        private void VSW_Loaded(object sender, RoutedEventArgs e)
+        private void ItemsPanel_Loaded(object sender, RoutedEventArgs e)
         {
             // Avoid walking the Visual Tree on each Size change.
-            _vsw = sender as WrapGrid;
+            _itemsPanel = sender as WrapGrid;
 
             // Initialize item template.
             AdjustItemTemplate();
@@ -89,13 +91,19 @@ namespace XamlBrewer.Uwp.AdaptiveMenuBarSample
         {
             if (ActualWidth > 800)
             {
-                _vsw.ItemWidth = ActualWidth / 2;
-                _vsw.MinWidth = ActualWidth;
+                // Two rows.
+                _itemsPanel.ItemWidth = ActualWidth / 2;
+                _itemsPanel.MinWidth = ActualWidth;
+                MenuBar.Margin = new Thickness(0, 0, 64, 0);
+                Title.Margin = new Thickness(0);
             }
             else
             {
-                _vsw.ItemWidth = ActualWidth;
-                _vsw.Width = ActualWidth;
+                // One row.
+                _itemsPanel.ItemWidth = ActualWidth;
+                _itemsPanel.Width = ActualWidth;
+                MenuBar.Margin = new Thickness(0);
+                Title.Margin = new Thickness(0, 0, 64, 0);
             }
         }
     }

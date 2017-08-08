@@ -1,35 +1,25 @@
 ﻿using Mvvm;
 using Mvvm.Services;
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 namespace XamlBrewer.Uwp.AdaptiveMenuBarSample
 {
+    /// <summary>
+    /// A secondary menu to display all animals of the zodiac.
+    /// </summary>
     public sealed partial class AnimalsMenu : UserControl
     {
-        private WrapGrid _vsw;
+        private WrapGrid _itemsPanel;
 
         public AnimalsMenu()
         {
             this.InitializeComponent();
-            Menu.Items.Add(new MenuItem()
-            {
-                Glyph = Icon.GetIcon("AriesIcon"),
-                Text = "Aries",
-                NavigationDestination = typeof(AriesPage)
-            });
+
+            // Populate Menu.
+            Menu.Items.Add(new MenuItem() { Glyph = Icon.GetIcon("AriesIcon"), Text = "Aries", NavigationDestination = typeof(AriesPage) });
             Menu.Items.Add(new MenuItem() { Glyph = Icon.GetIcon("CancerIcon"), Text = "Cancer", NavigationDestination = typeof(CancerPage) });
             Menu.Items.Add(new MenuItem() { Glyph = Icon.GetIcon("CapricornIcon"), Text = "Capricorn", NavigationDestination = typeof(CapricornPage) });
             Menu.Items.Add(new MenuItem() { Glyph = Icon.GetIcon("LeoIcon"), Text = "Leo", NavigationDestination = typeof(LeoPage) });
@@ -37,9 +27,14 @@ namespace XamlBrewer.Uwp.AdaptiveMenuBarSample
             Menu.Items.Add(new MenuItem() { Glyph = Icon.GetIcon("ScorpioIcon"), Text = "Scorpio", NavigationDestination = typeof(ScorpioPage) });
             Menu.Items.Add(new MenuItem() { Glyph = Icon.GetIcon("TaurusIcon"), Text = "Taurus", NavigationDestination = typeof(TaurusPage) });
 
-            StackPanel.RegisterImplicitAnimations();
+            // Animate Menu.
+            GridView.RegisterImplicitAnimations();
         }
 
+        /// <summary>
+        /// Highlights the (first) menu item that corresponds to the page.
+        /// </summary>
+        /// <param name="pageType">Type of the page.</param>
         public void SetTab(Type pageType)
         {
             // Lookup destination type in menu(s)
@@ -64,9 +59,9 @@ namespace XamlBrewer.Uwp.AdaptiveMenuBarSample
             }
         }
 
-        private void StackPanel_SizeChanged(object sender, SizeChangedEventArgs e)
+        private void GridView_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            if (_vsw == null)
+            if (_itemsPanel == null)
             {
                 return;
             }
@@ -74,30 +69,32 @@ namespace XamlBrewer.Uwp.AdaptiveMenuBarSample
             // Only react to change in Width.
             if (e.NewSize.Width != e.PreviousSize.Width)
             {
-                AdjustItemTemplate();
+                AdjustItemsPanel();
             }
         }
 
-        private void VSW_Loaded(object sender, RoutedEventArgs e)
+        private void ItemsPanel_Loaded(object sender, RoutedEventArgs e)
         {
             // Avoid walking the Visual Tree on each Size change.
-            _vsw = sender as WrapGrid;
+            _itemsPanel = sender as WrapGrid;
 
-            // Initialize item template.
-            AdjustItemTemplate();
+            // Initialize itemsPanel.
+            AdjustItemsPanel();
         }
 
-        private void AdjustItemTemplate()
+        private void AdjustItemsPanel()
         {
             if (ActualWidth > 800)
             {
-                _vsw.ItemWidth = ActualWidth / 2;
-                _vsw.MinWidth = ActualWidth;
+                // Two rows.
+                _itemsPanel.ItemWidth = ActualWidth / 2;
+                _itemsPanel.MinWidth = ActualWidth;
             }
             else
             {
-                _vsw.ItemWidth = ActualWidth;
-                _vsw.Width = ActualWidth;
+                // One row.
+                _itemsPanel.ItemWidth = ActualWidth;
+                _itemsPanel.Width = ActualWidth;
             }
         }
     }

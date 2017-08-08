@@ -9,23 +9,18 @@
     <Grid Background="{StaticResource TenPercentDarkerBrush}"
           Margin="0"
           Padding="0">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <!--<ColumnDefinition Width="auto" />-->
-        </Grid.ColumnDefinitions>
 
-        <GridView x:Name="StackPanel"
+        <GridView x:Name="GridView"
                   HorizontalAlignment="Stretch"
                   HorizontalContentAlignment="Stretch"
                   VerticalAlignment="Stretch"
                   VerticalContentAlignment="Stretch"
-                  SizeChanged="StackPanel_SizeChanged"
+                  SizeChanged="GridView_SizeChanged"
                   SelectionMode="None"
                   Padding="0">
             <GridView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapGrid x:Name="VSW"
-                              Loaded="VSW_Loaded"
+                    <WrapGrid Loaded="ItemsPanel_Loaded"
                               ItemHeight="68"
                               ItemWidth="1000"
                               Orientation="Horizontal"
@@ -80,71 +75,15 @@
         </GridView>
 
         <!-- Icon -->
-        <!--<Path Data="{StaticResource DialogIcon}"
-              Fill="Black"
+        <Path Data="{StaticResource FiveDotsIcon}"
+              Fill="{StaticResource PageTitleBrush}"
               VerticalAlignment="Top"
               HorizontalAlignment="Right"
               Height="48"
               Width="48"
-              Margin="20"
+              Margin="8"
               Stretch="Uniform"
-              Grid.Column="1" />-->
+              />
 
-        <!-- Responsive Visual States -->
-        <!--<VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-
-                -->
-        <!-- VisualState to be triggered when window width is >=1007 effective pixels -->
-        <!--
-                <VisualState x:Name="Large">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="1007" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="VSW.ItemWidth"
-                                Value="500" />
-                        -->
-        <!--<Setter Target="StackPanel.Orientation"
-                                Value="Horizontal" />-->
-        <!--
-                    </VisualState.Setters>
-                </VisualState>
-
-                -->
-        <!-- VisualState to be triggered when window width is >=640 and <=1007 effective pixels -->
-        <!--
-                <VisualState x:Name="Medium">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="641" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="VSW.ItemWidth"
-                                Value="400" />
-                        -->
-        <!--<Setter Target="StackPanel.Orientation"
-                                Value="Vertical" />-->
-        <!--
-                    </VisualState.Setters>
-                </VisualState>
-
-                -->
-        <!-- VisualState to be triggered when window width is >=0 and <641 effective pixels -->
-        <!--
-                <VisualState x:Name="Small">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        -->
-        <!--<Setter Target="StackPanel.Orientation"
-                                Value="Vertical" />-->
-        <!--
-                        <Setter Target="VSW.ItemWidth"
-                                Value="400" />
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>-->
     </Grid>
 </UserControl>
